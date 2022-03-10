@@ -8,4 +8,12 @@
     <string name="name_rus">Имя</string>
     <string name="mail_rus">Почта</string>
     <string name="or_rus">или</string>
+    <string name="or">или</string>
+    <string name="signIn">Войти</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="vosstanovit">восстановить</string>
+    <string name="registration">Регистрация</string>
+    <string name="tv_ewe_ne_zareg">Еще не зарегистрированы?</string>
+    <string name="edPassword">Пароль</string>
+    <string name="mail">Почта</string>
 </resources>
