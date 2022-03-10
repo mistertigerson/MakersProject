@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MakersProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="web_client">503925719033-uci3jp2dtnvme0i6b8hr56b0vn49iraa.apps.googleusercontent.com</string>
+    <string name="registration_rus">Регистрация</string>
+    <string name="last_name_rus">Фамилия</string>
+    <string name="name_rus">Имя</string>
+    <string name="mail_rus">Почта</string>
+    <string name="or_rus">или</string>
 </resources>
