@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/first"
-        android:title="First"
+        android:id="@+id/homeItem"
+        android:title="home"
         android:icon="@drawable/ic_launcher_background"/>
+   <item
+        android:id="@+id/search"
+        android:title="search"
+        android:icon="@drawable/ic_launcher_background"/>
+   <item
+        android:id="@+id/account"
+        android:title="acc"
+        android:icon="@drawable/ic_launcher_background"/>
+   <item
+        android:id="@+id/education"
+        android:title="edu"
+        android:icon="@drawable/ic_launcher_background"/>
+
+
 
 </menu>
