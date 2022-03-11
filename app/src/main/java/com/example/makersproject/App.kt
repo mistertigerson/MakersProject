@@ -1,9 +1,9 @@
 package com.example.makersproject
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+//import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
+//@HiltAndroidApp
 class App : Application() {
 
     override fun onCreate() {
