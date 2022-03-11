@@ -119,7 +119,6 @@
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/browser_actions_bg_grey"
             android:text="@string/signIn"
             android:textAllCaps="false"
             android:textColor="#4D12121D"
