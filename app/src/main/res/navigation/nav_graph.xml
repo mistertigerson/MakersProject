@@ -3,11 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/firstRegistrationFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.FirstRegistrationFragment"
         android:label="fragment_first_registration"
         tools:layout="@layout/fragment_first_registration" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.mainFragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.auth.AuthorizationFragment"
+        android:label="fragment_authorization"
+        tools:layout="@layout/fragment_authorization" />
+    <fragment
+        android:id="@+id/hilt_FirstRegistrationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.Hilt_FirstRegistrationFragment"
+        android:label="Hilt_FirstRegistrationFragment" />
 </navigation>
