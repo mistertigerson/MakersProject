@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E5E5E5"
-    tools:context=".presentation.ui.fragments.FirstRegistrationFragment">
+    tools:context=".presentation.ui.fragments.registration.FirstRegistrationFragment">
+
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
@@ -18,6 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etSurname"
         android:layout_width="315dp"
@@ -29,7 +31,9 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRegistration" />
+        app:layout_constraintTop_toBottomOf="@id/tvRegistration"
+        android:autofillHints="" />
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="315dp"
@@ -41,7 +45,9 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSurname" />
+        app:layout_constraintTop_toBottomOf="@id/etSurname"
+        android:autofillHints="" />
+
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="315dp"
@@ -53,7 +59,9 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etName" />
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        android:autofillHints="" />
+
     <Button
         android:id="@+id/btnRegistration"
         android:layout_width="220dp"
@@ -89,4 +97,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="26dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

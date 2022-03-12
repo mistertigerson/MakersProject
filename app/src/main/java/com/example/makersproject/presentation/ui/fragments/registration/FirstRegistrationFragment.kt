@@ -1,10 +1,10 @@
-package com.example.makersproject.presentation.ui.fragments
+package com.example.makersproject.presentation.ui.fragments.registration
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -12,7 +12,6 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.makersproject.R
 import com.example.makersproject.databinding.FragmentFirstRegistrationBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -29,15 +28,16 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FirstRegistrationFragment : Fragment() {
 
-    private val binding: FragmentFirstRegistrationBinding by viewBinding()
+    private lateinit var binding: FragmentFirstRegistrationBinding
     private lateinit var googleClient: GoogleSignInClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_registration, container, false)
+        binding = FragmentFirstRegistrationBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

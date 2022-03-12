@@ -3,11 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
+    android:label="@string/label_first_registration_fragment_rus"
     app:startDestination="@id/firstRegistrationFragment">
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.FirstRegistrationFragment"
-        android:label="fragment_first_registration"
+        android:name="com.example.makersproject.presentation.ui.fragments.registration.FirstRegistrationFragment"
+        android:label="@string/label_first_registration_fragment_rus"
         tools:layout="@layout/fragment_first_registration" />
+    <fragment
+        android:id="@+id/personalAreaFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.personal_area.PersonalAreaFragment"
+        android:label="@string/label_personal_area_fragment_rus"
+        tools:layout="@layout/fragment_personal_area" />
+    <fragment
+        android:id="@+id/editPersonalAreaFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.personal_area.EditPersonalAreaFragment"
+        android:label="@string/fragment_edit_personal_area"
+        tools:layout="@layout/fragment_edit_personal_area" />
 </navigation>

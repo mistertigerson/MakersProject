@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MakersProject">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".presentation.ui.activities.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

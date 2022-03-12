@@ -6,4 +6,26 @@
     <string name="name_rus">Имя</string>
     <string name="mail_rus">Почта</string>
     <string name="or_rus">или</string>
+
+    <!--Bottom nav menu-->
+    <string name="personal_area_rus">Личный кабинет</string>
+
+    <!--Nav graph-->
+    <string name="label_first_registration_fragment_rus">Регистрация</string>
+    <string name="label_personal_area_fragment_rus">Личный кабинет</string>
+    <string name="fragment_edit_personal_area">Редактирование профиля</string>
+
+    <!-- Personal Area fragment -->
+    <string name="imageview">ImageView</string>
+    <string name="tv_speciality_rus">Выберите специальность</string>
+    <string name="tv_title_rus">Введите имя</string>
+    <string name="tv_city_rus">Город:</string>
+    <string name="tv_contact_rus">Контакты:</string>
+    <string name="tv_education_rus">Образование:</string>
+    <string name="tv_status_rus">Статус:</string>
+    <string name="btn_edit_rus">Редактировать</string>
+    <string name="tv_data_city_name_rus">Бишкек</string>
+    <string name="tv_data_contact_rus">+996500608930</string>
+    <string name="tv_data_education_rus">Программист</string>
+    <string name="tv_data_status">Эксперт</string>
 </resources>

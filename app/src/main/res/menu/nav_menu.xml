@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeItem"
+        android:id="@+id/firstRegistrationFragment"
         android:title="home"
         android:icon="@drawable/ic_launcher_background"/>
+    <item
+        android:id="@+id/personalAreaFragment"
+        android:title="@string/personal_area_rus"
+        android:icon="@drawable/ic_personal_area"/>
    <item
         android:id="@+id/search"
         android:title="search"
@@ -12,11 +16,5 @@
         android:id="@+id/account"
         android:title="acc"
         android:icon="@drawable/ic_launcher_background"/>
-   <item
-        android:id="@+id/education"
-        android:title="edu"
-        android:icon="@drawable/ic_launcher_background"/>
-
-
 
 </menu>
