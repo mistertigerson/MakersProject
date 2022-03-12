@@ -3,10 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Kramer/AndroidStudioProjects/MakersProject/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
-        <entry key="..\:/Users/Kramer/AndroidStudioProjects/MakersProject/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Kramer/AndroidStudioProjects/MakersProject/app/src/main/res/layout/fragment_first_registration.xml" value="0.25025641025641027" />
-        <entry key="..\:/Users/Kramer/AndroidStudioProjects/MakersProject/app/src/main/res/menu/nav_menu.xml" value="0.11302083333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29128205128205126" />
       </map>
     </option>
   </component>
