@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
         val navController: NavController = navHostController!!.findNavController()
 
         val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.blankFragment,
             R.id.firstRegistrationFragment)
             .build()
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNav.setupWithNavController(navController)
-
 
     }
 }

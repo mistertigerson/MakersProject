@@ -23,7 +23,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,6 +34,8 @@ class FirstRegistrationFragment : Fragment() {
 
     private val binding: FragmentFirstRegistrationBinding by viewBinding()
     private lateinit var googleClient: GoogleSignInClient
+    private val auth = FirebaseAuth.getInstance()
+    private val fireStore = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +52,20 @@ class FirstRegistrationFragment : Fragment() {
 
         binding.btnGmail.setOnClickListener {
             googleSignIn()
+        }
+
+        binding.btnRegistration.setOnClickListener {
+            signInWithEmailAndPassword()
+        }
+    }
+
+    private fun signInWithEmailAndPassword() {
+        auth.createUserWithEmailAndPassword(
+            binding.etEmail.toString(),
+            binding.etPassword.toString()
+        ).addOnCompleteListener { task ->
+            if (task.isSuccessful) Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -78,8 +97,7 @@ class FirstRegistrationFragment : Fragment() {
     }
 
     private fun close() {
-        val navController = findNavController()
-        navController.navigateUp()
+        findNavController().navigateUp()
     }
 
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
