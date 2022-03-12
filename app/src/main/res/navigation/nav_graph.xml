@@ -7,21 +7,33 @@
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.FirstRegistrationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.first_registration_fragment.FirstRegistrationFragment"
         android:label="fragment_first_registration"
         tools:layout="@layout/fragment_first_registration" />
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.mainFragment.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/searchFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.search_fragment.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/authorizationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.auth.AuthorizationFragment"
-        android:label="fragment_authorization"
+        android:name="com.example.makersproject.presentation.ui.fragments.auth_fragment.AuthorizationFragment"
+        android:label="authorization"
         tools:layout="@layout/fragment_authorization" />
+
     <fragment
-        android:id="@+id/hilt_FirstRegistrationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.Hilt_FirstRegistrationFragment"
-        android:label="Hilt_FirstRegistrationFragment" />
+        android:id="@+id/accountFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.account_fragment.AccountFragment"
+        android:label="account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.main_fragment.MainFragment"
+        android:label="main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/educationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.education_fragment.EducationFragment"
+        android:label="education"
+        tools:layout="@layout/fragment_education" />
 </navigation>
