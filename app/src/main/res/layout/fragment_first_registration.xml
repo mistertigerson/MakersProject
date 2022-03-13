@@ -37,7 +37,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="10dp"
         android:drawablePadding="20dp"
-        android:hint="@string/mail_rus"
+        android:hint="@string/Password_rus"
         android:inputType="textWebPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,8 +71,9 @@
 
     <Button
         android:id="@+id/btnGmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_gmail"
         app:layout_constraintTop_toBottomOf="@id/tvOr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -7,5 +7,5 @@ package com.example.makersproject.data.models
 //    val name: String,
 //    val surname: String,
 //    val email: String,
-//    val password: String
+//    val password: String+
 //        )

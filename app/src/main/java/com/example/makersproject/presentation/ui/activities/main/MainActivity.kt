@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.makersproject.R
 import com.example.makersproject.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         val navController: NavController = navHostController!!.findNavController()
         binding.bottomNav.setupWithNavController(navController)
 
-
+        val auth = FirebaseAuth.getInstance()
+        if (auth.currentUser == null){
+            navController.navigate(R.id.firstRegistrationFragment)
+        }
     }
 }

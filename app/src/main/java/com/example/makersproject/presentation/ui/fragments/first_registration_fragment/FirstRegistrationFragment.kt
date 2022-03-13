@@ -60,12 +60,14 @@ class FirstRegistrationFragment : Fragment() {
     }
 
     private fun signInWithEmailAndPassword() {
-        auth.createUserWithEmailAndPassword(
-            binding.etEmail.toString(),
-            binding.etPassword.toString()
-        ).addOnCompleteListener { task ->
-            if (task.isSuccessful) Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+        if (auth.currentUser == null) {
+            auth.createUserWithEmailAndPassword(
+                binding.etEmail.toString(),
+                binding.etPassword.toString()
+            ).addOnCompleteListener { task ->
+                if (task.isSuccessful) Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

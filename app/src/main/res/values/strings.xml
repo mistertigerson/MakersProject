@@ -12,7 +12,7 @@
     <string name="vosstanovit">восстановить</string>
     <string name="registration">Регистрация</string>
     <string name="tv_ewe_ne_zareg">Еще не зарегистрированы?</string>
-    <string name="edPassword">Пароль</string>
+    <string name="Password_rus">Пароль</string>
     <string name="mail">Почта</string>
     <string name="hello_blank_fragment" />
 </resources>
