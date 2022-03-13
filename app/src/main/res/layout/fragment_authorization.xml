@@ -39,7 +39,6 @@
         android:drawablePadding="22dp"
         android:hint="@string/mail"
         android:importantForAutofill="no"
-        android:inputType="phone"
         android:textColorHint="#4D12121D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
