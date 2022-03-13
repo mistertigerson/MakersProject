@@ -15,4 +15,5 @@
     <string name="Password_rus">Пароль</string>
     <string name="mail">Почта</string>
     <string name="hello_blank_fragment" />
+    <string name="detail_rus">подробнее</string>
 </resources>
