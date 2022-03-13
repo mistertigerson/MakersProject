@@ -1,4 +1,4 @@
-package com.example.makersproject.presentation.ui.fragments.main_fragment
+package com.example.makersproject.presentation.ui.fragments.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

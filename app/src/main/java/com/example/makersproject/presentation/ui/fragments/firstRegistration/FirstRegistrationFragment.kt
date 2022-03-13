@@ -1,4 +1,4 @@
-package com.example.makersproject.presentation.ui.fragments.first_registration_fragment
+package com.example.makersproject.presentation.ui.fragments.firstRegistration
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent

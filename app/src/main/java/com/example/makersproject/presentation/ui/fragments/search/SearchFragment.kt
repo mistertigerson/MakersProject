@@ -1,9 +1,8 @@
-package com.example.makersproject.presentation.ui.fragments.search_fragment
+package com.example.makersproject.presentation.ui.fragments.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.makersproject.R
 import com.example.makersproject.databinding.FragmentSearchBinding
