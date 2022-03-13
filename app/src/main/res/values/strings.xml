@@ -14,4 +14,6 @@
     <string name="tv_ewe_ne_zareg">Еще не зарегистрированы?</string>
     <string name="edPassword">Пароль</string>
     <string name="mail">Почта</string>
+    <string name="hello_blank_fragment" />
+    <string name="detail_rus">подробнее</string>
 </resources>

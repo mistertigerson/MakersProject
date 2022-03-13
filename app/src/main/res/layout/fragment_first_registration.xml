@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E5E5E5"
-    tools:context=".presentation.ui.fragments.FirstRegistrationFragment">
+    tools:context=".presentation.ui.fragments.firstRegistration.FirstRegistrationFragment">
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
