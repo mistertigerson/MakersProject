@@ -4,9 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
@@ -15,14 +13,11 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.makersproject.R
 import com.example.makersproject.databinding.FragmentAuthorizationBinding
-import com.example.makersproject.databinding.FragmentFirstRegistrationBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
@@ -30,20 +25,49 @@ import com.google.firebase.auth.GoogleAuthProvider
 class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
     private val binding: FragmentAuthorizationBinding by viewBinding()
     private lateinit var googleClient: GoogleSignInClient
+    private lateinit var mAuth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mAuth = FirebaseAuth.getInstance()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initGmail()
 
-        binding.btnSignIn.setOnClickListener{
-            findNavController().navigate(R.id.mainFragment)
-        }
-        binding.tvRegistrationSignIn.setOnClickListener{
+        initGmail()
+        initEditText()
+
+
+        binding.tvRegistrationSignIn.setOnClickListener {
             findNavController().navigate(R.id.firstRegistrationFragment)
         }
         binding.btnGmailInSign.setOnClickListener {
             gmailSignIn()
+        }
+    }
+
+    private fun initEditText() {
+        binding.btnSignIn.setOnClickListener {
+            if (binding.etMailSignIn.text.toString().isEmpty() || binding.etPasswordSignIn.text
+                    .toString().isEmpty()
+            ) {
+                Toast.makeText(requireContext(),
+                    "Fields cannot be empty ", Toast.LENGTH_SHORT).show()
+            } else {
+                mAuth.signInWithEmailAndPassword(binding.etMailSignIn.text.toString(), binding
+                    .etPasswordSignIn.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        findNavController().navigate(R.id.mainFragment)
+                    } else {
+                        Toast.makeText(requireContext(),
+                            "You have some errors ", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            }
+
         }
     }
 
@@ -55,10 +79,12 @@ class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
             .build()
         googleClient = GoogleSignIn.getClient(requireActivity(), gso)
     }
+
     private fun gmailSignIn() {
         val intent = googleClient.signInIntent
         resultLauncher.launch(intent)
     }
+
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback {
@@ -77,14 +103,14 @@ class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
     private fun signWithGmail(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener(OnCompleteListener<AuthResult>() { task ->
-                if (task.isSuccessful){
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
                     close()
                 } else {
                     Toast.makeText(requireContext(),
                         "AuthError ", Toast.LENGTH_SHORT).show()
                 }
-            })
+            }
     }
 
     private fun close() {

@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_voiti" />
     <EditText
-        android:id="@+id/et_phone_sign_in"
+        android:id="@+id/etMailSignIn"
         android:layout_width="315dp"
         android:layout_height="56dp"
         android:layout_marginTop="28dp"
@@ -57,7 +57,7 @@
         android:textColorHint="#4D12121D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_phone_sign_in" />
+        app:layout_constraintTop_toBottomOf="@id/etMailSignIn" />
 
     <TextView
         android:id="@+id/tvNotRegisteredYet"
