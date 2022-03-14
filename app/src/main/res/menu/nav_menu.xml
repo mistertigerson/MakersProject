@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/firstRegistrationFragment"
+        android:id="@+id/mainFragment"
         android:title="home"
         android:icon="@drawable/ic_launcher_background"/>
-    <item
-        android:id="@+id/personalAreaFragment"
-        android:title="@string/personal_area_rus"
-        android:icon="@drawable/ic_personal_area"/>
    <item
-        android:id="@+id/search"
+        android:id="@+id/accountFragment"
+        android:title="@string/nav_menu_title_account_rus"
+        android:icon="@drawable/ic_account_nav_menu"/>
+   <item
+        android:id="@+id/searchFragment"
         android:title="search"
         android:icon="@drawable/ic_launcher_background"/>
    <item
-        android:id="@+id/account"
-        android:title="acc"
+        android:id="@+id/educationFragment"
+        android:title="edu"
         android:icon="@drawable/ic_launcher_background"/>
+
+
 
 </menu>

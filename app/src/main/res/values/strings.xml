@@ -6,26 +6,44 @@
     <string name="name_rus">Имя</string>
     <string name="mail_rus">Почта</string>
     <string name="or_rus">или</string>
+    <string name="or">или</string>
+    <string name="signIn">Войти</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="vosstanovit">восстановить</string>
+    <string name="registration">Регистрация</string>
+    <string name="tv_ewe_ne_zareg">Еще не зарегистрированы?</string>
+    <string name="edPassword">Пароль</string>
+    <string name="mail">Почта</string>/>
 
-    <!--Bottom nav menu-->
-    <string name="personal_area_rus">Личный кабинет</string>
-
-    <!--Nav graph-->
-    <string name="label_first_registration_fragment_rus">Регистрация</string>
-    <string name="label_personal_area_fragment_rus">Личный кабинет</string>
-    <string name="fragment_edit_personal_area">Редактирование профиля</string>
-
-    <!-- Personal Area fragment -->
-    <string name="imageview">ImageView</string>
-    <string name="tv_speciality_rus">Выберите специальность</string>
+    <!--Account fragment-->
+    <string name="imageViewAvatar">imageViewAvatar</string>
     <string name="tv_title_rus">Введите имя</string>
+    <string name="tv_speciality_rus">Введите специальность</string>
     <string name="tv_city_rus">Город:</string>
     <string name="tv_contact_rus">Контакты:</string>
     <string name="tv_education_rus">Образование:</string>
-    <string name="tv_status_rus">Статус:</string>
+    <string name="tv_experience_rus">Стаж:</string>
     <string name="btn_edit_rus">Редактировать</string>
     <string name="tv_data_city_name_rus">Бишкек</string>
-    <string name="tv_data_contact_rus">+996500608930</string>
+    <string name="tv_data_contact_rus">+996700897680</string>
     <string name="tv_data_education_rus">Программист</string>
-    <string name="tv_data_status">Эксперт</string>
+    <string name="tv_data_experience_rus">5 лет</string>
+    <string name="tv_course_rus">Созданные курсы</string>
+    <string name="tv_add_course_rus">Добавить свой курс</string>
+
+    <!--Nav Menu-->
+    <string name="nav_menu_title_account_rus">Личный кабинет</string>
+
+    <!--Edit Account fragment-->
+    <string name="btn_save_data_rus">Сохранить</string>
+    <string name="et_add_name_rus">Имя</string>
+    <string name="et_add_speciality_rus">Специальность (профессия)</string>
+    <string name="et_add_city_rus">Страна или город</string>
+    <string name="et_add_contact_rus">Контакты</string>
+    <string name="et_add_education_rus">Образование</string>
+    <string name="et_add_experience_rus">Стаж</string>
+    <string name="imageview">imageView</string>
+    <string name="tv_status_rus">Стаж:</string>
+    <string name="tv_data_status">5 лет</string>
+    <string name="detail_rus">Подробнее</string>
 </resources>

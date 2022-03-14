@@ -3,22 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    android:label="@string/label_first_registration_fragment_rus"
-    app:startDestination="@id/firstRegistrationFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.registration.FirstRegistrationFragment"
-        android:label="@string/label_first_registration_fragment_rus"
+        android:name="com.example.makersproject.presentation.ui.fragments.firstRegistration.FirstRegistrationFragment"
+        android:label="fragment_first_registration"
         tools:layout="@layout/fragment_first_registration" />
     <fragment
-        android:id="@+id/personalAreaFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.personal_area.PersonalAreaFragment"
-        android:label="@string/label_personal_area_fragment_rus"
-        tools:layout="@layout/fragment_personal_area" />
+        android:id="@+id/searchFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.search.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/editPersonalAreaFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.personal_area.EditPersonalAreaFragment"
-        android:label="@string/fragment_edit_personal_area"
-        tools:layout="@layout/fragment_edit_personal_area" />
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.auth.AuthorizationFragment"
+        android:label="authorization"
+        tools:layout="@layout/fragment_authorization" />
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.account.AccountFragment"
+        android:label="account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.main.MainFragment"
+        android:label="main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/educationFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.education.EducationFragment"
+        android:label="education"
+        tools:layout="@layout/fragment_education" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.main.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 </navigation>

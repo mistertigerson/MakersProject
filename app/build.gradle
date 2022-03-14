@@ -1,14 +1,13 @@
-plugins {
+//plugins {
 //    id 'com.android.application'
 //    id 'kotlin-android'
+//}
 
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'dagger.hilt.android.plugin'
-    id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
-
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdk 32
@@ -36,6 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures{
         viewBinding true
     }
