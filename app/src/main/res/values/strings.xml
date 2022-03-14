@@ -46,4 +46,5 @@
     <string name="tv_status_rus">Стаж:</string>
     <string name="tv_data_status">5 лет</string>
     <string name="detail_rus">Подробнее</string>
+    <string name="tv_change_photo_rus">Изменить фото профиля</string>
 </resources>

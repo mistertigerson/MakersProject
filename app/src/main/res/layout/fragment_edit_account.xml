@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.fragments.account.EditAccountFragment">
+
+    <ImageView
+        android:id="@+id/ivEditAvatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/imageViewAvatar"
+        android:src="@drawable/ic_profile" />
+
+    <TextView
+        android:id="@+id/tvChangePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivEditAvatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_change_photo_rus"
+        android:textColor="#213ABD"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etAddName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvChangePhoto"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_name_rus"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/etAddSpeciality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddName"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_speciality_rus"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/etAddCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddSpeciality"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_city_rus"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/etAddContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddCity"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_contact_rus"
+        android:imeOptions="actionDone"
+        android:inputType="phone"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/etAddEducation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddContact"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_education_rus"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/etAddExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddEducation"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/et_add_experience_rus"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddExperience"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/btn_background"
+        android:text="@string/btn_save_data_rus"
+        android:textColor="@color/black"
+        app:cornerRadius="15dp" />
+
+</RelativeLayout>
