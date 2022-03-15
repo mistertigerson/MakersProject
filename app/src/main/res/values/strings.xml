@@ -16,4 +16,7 @@
     <string name="mail">Почта</string>
     <string name="hello_blank_fragment" />
     <string name="detail_rus">подробнее</string>
+    <string name="cannot_registrated_rus">Не удалось зарегистрироватся</string>
+    <string name="send_email_verification_rus">На вашу почту отправлена ссылка для подтверждения!</string>
+    <string name="cannot_send_email_verification_rus">\"Не удалось отправить ссылку для подтверждения на почту \"</string>
 </resources>
