@@ -111,6 +111,7 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
                         requireContext(),
                         "AuthError ", Toast.LENGTH_SHORT
                     ).show()
+                    Log.e("Auth", task.exception?.message.toString())
                 }
             })
     }
@@ -124,15 +125,13 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback {
-            if (it.resultCode == RESULT_OK) {
-                try {
-                    val task: Task<GoogleSignInAccount> =
-                        GoogleSignIn.getSignedInAccountFromIntent(it.data)
-                    val account = task.getResult(ApiException::class.java)!!
-                    authWithGoogle(account)
-                } catch (e: ApiException) {
-                    e.printStackTrace()
-                }
+            try {
+                val task: Task<GoogleSignInAccount> =
+                    GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                val account = task.getResult(ApiException::class.java)!!
+                authWithGoogle(account)
+            } catch (e: ApiException) {
+                e.printStackTrace()
             }
         })
 
