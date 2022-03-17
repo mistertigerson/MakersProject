@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".presentation.ui.fragments.main.details.DetailsFragment"
+    >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        tools:text="Разработка веб сервисов на java"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:src="@color/black"
+        />
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        tools:text="Разработка веб сервисов на java и так далее, пацифисты люди
+         выступающие против войны вообще"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/tvNameOfAuthor"
+        android:layout_width="200dp"
+        android:textColor="@color/black"
+        android:layout_height="20dp"
+
+        android:layout_marginTop="10dp"
+        tools:text="David Beckham"
+        />
+
+
+    <TextView
+        android:id="@+id/tvComments"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+
+        android:layout_margin="10dp"
+        android:textSize="10sp"
+        tools:text="классный курс, но автор слишком затянулся"
+        />
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="купить"
+
+        />
+
+
+</LinearLayout>

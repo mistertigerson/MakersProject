@@ -1,60 +1,66 @@
 package com.example.makersproject.presentation.ui.fragments.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.makersproject.R
+import com.example.makersproject.databinding.FragmentMainBinding
+import com.example.makersproject.presentation.ui.fragments.firstRegistration.FirstRegistrationFragment
+import io.grpc.NameResolver
+import kotlin.math.log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class MainFragment : Fragment(R.layout.fragment_main) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val binding: FragmentMainBinding by viewBinding()
+    private lateinit var adapter: MainAdapter
+    private var list: ArrayList<MainModel> = ArrayList()
+    private lateinit var mainModel: MainModel
+    private val args: MainFragmentArgs by navArgs()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mainModel = MainModel(
+            R.drawable.common_google_signin_btn_icon_dark,
+            args.name.toString(),
+            args.password.toString(),
+            "ahhahahah"
+        )
+
+        list.add(mainModel)
+        list.add(mainModel)
+        list.add(mainModel)
+        list.add(mainModel)
+        adapter = MainAdapter(object : MainAdapter.ClickOnPlaylist2 {
+            override fun onClick(model: MainModel, position: Int) {
+                val bundle: Bundle = Bundle()
+                bundle.putSerializable("title", list[position].title)
+                Log.e("TAG", "list: ${list[position].title}", )
+                bundle.putSerializable("author", list[position].NameOfAuthor)
+                bundle.putSerializable("key", list[position].comments)
+                findNavController().navigate(R.id.detailsFragment, bundle)
             }
+
+            override fun clickBtn() {
+                findNavController().navigate(R.id.authorizationFragment)
+            }
+        })
+        binding.recyclerMain.adapter = adapter
+        adapter.setList(list)
+
+    }
+
+    companion object{
+        const val TITLE = "title"
+        const val AUTHOR = "author"
+        const val COMMENTS = "comments"
+
     }
 }
