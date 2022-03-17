@@ -1,11 +1,22 @@
 <resources>
     <string name="app_name">MakersProject</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="web_client">503925719033-uci3jp2dtnvme0i6b8hr56b0vn49iraa.apps.googleusercontent.com</string>
     <string name="registration_rus">Регистрация</string>
     <string name="last_name_rus">Фамилия</string>
     <string name="name_rus">Имя</string>
     <string name="mail_rus">Почта</string>
     <string name="or_rus">или</string>
+    <string name="or">или</string>
+    <string name="signIn">Войти</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="vosstanovit">восстановить</string>
+    <string name="registration">Регистрация</string>
+    <string name="tv_ewe_ne_zareg">Еще не зарегистрированы?</string>
+    <string name="Password_rus">Пароль</string>
+    <string name="mail">Почта</string>
+    <string name="hello_blank_fragment" />
+    <string name="detail_rus">подробнее</string>
+    <string name="cannot_registrated_rus">Не удалось зарегистрироватся</string>
+    <string name="send_email_verification_rus">На вашу почту отправлена ссылка для подтверждения!</string>
+    <string name="cannot_send_email_verification_rus">\"Не удалось отправить ссылку для подтверждения на почту \"</string>
 </resources>
