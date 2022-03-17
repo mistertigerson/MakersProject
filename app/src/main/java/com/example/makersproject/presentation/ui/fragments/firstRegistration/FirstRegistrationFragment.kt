@@ -3,6 +3,7 @@ package com.example.makersproject.presentation.ui.fragments.firstRegistration
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,10 +36,12 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
-
         initGoogle()
+
+
 
         binding.btnGmail.setOnClickListener {
             googleSignUp()
@@ -53,14 +56,17 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         if (email.isNotEmpty() && password.isNotEmpty()) {
             App.fbAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    sendEmailVerification(task.result?.user!!)
-                    close()
+                    if (task.isSuccessful) {
+                        sendEmailVerification(task.result?.user!!)
+                        close()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            getString(R.string.cannot_registrated_rus),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-                else {
-                    Toast.makeText(context, getString(R.string.cannot_registrated_rus), Toast.LENGTH_SHORT).show()
-                }
-            }
         } else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
     }
 
@@ -97,19 +103,22 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
     private fun authWithGoogle(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener(OnCompleteListener<AuthResult>() {task ->
-                if (task.isSuccessful){
+            .addOnCompleteListener(OnCompleteListener<AuthResult>() { task ->
+                if (task.isSuccessful) {
                     close()
                 } else {
-                    Toast.makeText(requireContext(),
-                        "AuthError ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "AuthError ", Toast.LENGTH_SHORT
+                    ).show()
                 }
             })
     }
 
     private fun close() {
         val navController = findNavController()
-        navController.navigate(R.id.mainFragment)
+        navController.navigateUp()
+
     }
 
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
@@ -117,7 +126,8 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         ActivityResultCallback {
             if (it.resultCode == RESULT_OK) {
                 try {
-                    val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                    val task: Task<GoogleSignInAccount> =
+                        GoogleSignIn.getSignedInAccountFromIntent(it.data)
                     val account = task.getResult(ApiException::class.java)!!
                     authWithGoogle(account)
                 } catch (e: ApiException) {
@@ -125,5 +135,6 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
                 }
             }
         })
+
 
 }

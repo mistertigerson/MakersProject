@@ -13,7 +13,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/main_item"
         >
-
     </androidx.recyclerview.widget.RecyclerView>
+
 
 </FrameLayout>
