@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         Log.e("TAG", "onBackPressed: ", )
-//        navController.navigateUp()
+        navController.navigateUp()
 
 
     }

@@ -13,16 +13,7 @@
 
         <action
             android:id="@+id/action_firstRegistrationFragment_to_mainFragment"
-            app:destination="@id/mainFragment">
-            <argument
-                android:name="name"
-                app:argType="string"
-                app:nullable="true" />
-            <argument
-                android:name="password"
-                app:argType="string"
-                app:nullable="true" />
-        </action>
+            app:destination="@id/mainFragment">        </action>
 
     </fragment>
     <fragment
@@ -50,15 +41,15 @@
         android:name="com.example.makersproject.presentation.ui.fragments.main.MainFragment"
         android:label="main"
         tools:layout="@layout/fragment_main">
-
-        <argument
-            android:name="name"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="password"
-            app:argType="string"
-            app:nullable="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" >
+            <argument
+                android:name="title"
+                app:argType="string"
+                app:nullable="true"
+                />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/educationFragment"
@@ -69,5 +60,10 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.main.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>
