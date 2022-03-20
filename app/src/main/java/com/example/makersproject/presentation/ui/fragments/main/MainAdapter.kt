@@ -1,16 +1,24 @@
 package com.example.makersproject.presentation.ui.fragments.main
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makersproject.databinding.MainItemBinding
+import kotlin.properties.Delegates
 
-class MainAdapter(private val list: ArrayList<MainModel>, private val clickOnPlaylist2: ClickOnPlaylist2) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+class MainAdapter(private val clickOnPlaylist2: ClickOnPlaylist2) :
+    RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
+    private val list: ArrayList<MainModel> = arrayListOf()
+    private lateinit var binding: MainItemBinding
+    var pos by Delegates.notNull<Int>()
 
-    private lateinit var binding : MainItemBinding
-
-
+    @SuppressLint("NotifyDataSetChanged")
+    fun setList(list: ArrayList<MainModel>) {
+        this.list.addAll(list)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         binding = MainItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,6 +28,7 @@ class MainAdapter(private val list: ArrayList<MainModel>, private val clickOnPla
 
     override fun onBindViewHolder(holder: MainAdapter.MainViewHolder, position: Int) {
         holder.onBind(list[position])
+        pos = holder.absoluteAdapterPosition
     }
 
     override fun getItemCount(): Int {
@@ -30,19 +39,24 @@ class MainAdapter(private val list: ArrayList<MainModel>, private val clickOnPla
     inner class MainViewHolder(itemView: MainItemBinding) : RecyclerView.ViewHolder(itemView.root) {
 
         fun onBind(mainModel: MainModel) {
+
             binding.ivIcon.setImageResource(mainModel.imageIcon)
             binding.tvComments.text = mainModel.comments
             binding.tvNameOfAuthor.text = mainModel.NameOfAuthor
             binding.tvTitle.text = mainModel.title
 
-            binding.root.setOnClickListener{
-                clickOnPlaylist2.onClick()
+            binding.root.setOnClickListener {
+                clickOnPlaylist2.onClick(mainModel, pos)
+            }
+            binding.btnBuy.setOnClickListener {
+                clickOnPlaylist2.clickBtn()
             }
         }
 
     }
 
     interface ClickOnPlaylist2 {
-        fun onClick()
+        fun onClick(model: MainModel, position: Int)
+        fun clickBtn()
     }
 }

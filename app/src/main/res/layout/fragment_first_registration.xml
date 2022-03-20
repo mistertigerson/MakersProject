@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     android:background="#E5E5E5"
     tools:context=".presentation.ui.fragments.firstRegistration.FirstRegistrationFragment">
+
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="50dp"
         android:text="@string/registration_rus"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -18,47 +19,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/etSurname"
-        android:layout_width="315dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="56dp"
-        android:drawableStart="@drawable/ic_account"
-        android:drawablePadding="16dp"
-        android:hint="@string/last_name_rus"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRegistration" />
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="315dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/ic_account"
-        android:drawablePadding="16dp"
-        android:hint="@string/name_rus"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSurname" />
+
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="315dp"
         android:layout_height="56dp"
-        android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/ic_email"
+        android:layout_marginTop="30dp"
         android:drawablePadding="20dp"
         android:hint="@string/mail_rus"
-        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etName" />
+        app:layout_constraintTop_toBottomOf="@id/tvRegistration"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="315dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="20dp"
+        android:hint="@string/Password_rus"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        android:importantForAutofill="no" />
+
     <Button
         android:id="@+id/btnRegistration"
         android:layout_width="220dp"
         android:layout_height="56dp"
-        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        app:layout_constraintTop_toBottomOf="@id/etPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="56dp"
@@ -82,9 +73,9 @@
 
     <Button
         android:id="@+id/btnGmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_gmail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_gmail"
         app:layout_constraintTop_toBottomOf="@id/tvOr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

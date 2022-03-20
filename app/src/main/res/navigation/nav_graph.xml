@@ -3,13 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/authorizationFragment">
+    app:startDestination="@id/firstRegistrationFragment">
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.firstRegistration.FirstRegistrationFragment"
         android:label="fragment_first_registration"
-        tools:layout="@layout/fragment_first_registration" />
+        tools:layout="@layout/fragment_first_registration">
+
+        <action
+            android:id="@+id/action_firstRegistrationFragment_to_mainFragment"
+            app:destination="@id/mainFragment">
+        </action>
+
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.search.SearchFragment"
@@ -19,7 +26,11 @@
         android:id="@+id/authorizationFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.auth.AuthorizationFragment"
         android:label="authorization"
-        tools:layout="@layout/fragment_authorization" />
+        tools:layout="@layout/fragment_authorization">
+        <action
+            android:id="@+id/action_authorizationFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/accountFragment"
@@ -30,7 +41,12 @@
         android:id="@+id/mainFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.main.MainFragment"
         android:label="main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" >
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/educationFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.education.EducationFragment"
@@ -40,5 +56,10 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.makersproject.presentation.ui.fragments.main.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

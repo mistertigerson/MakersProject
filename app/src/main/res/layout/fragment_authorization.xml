@@ -51,7 +51,7 @@
         android:layout_marginTop="28dp"
         android:drawableStart="@drawable/ic_password"
         android:drawablePadding="22dp"
-        android:hint="@string/edPassword"
+        android:hint="@string/Password_rus"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:textColorHint="#4D12121D"
@@ -168,8 +168,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lines_cont">
 
-
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/btnGmailInSign"
             android:layout_width="56dp"
@@ -177,6 +175,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:src="@drawable/ic_gmail" />
+
     </LinearLayout> />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
