@@ -3,6 +3,7 @@ package com.example.makersproject.presentation.ui.fragments.firstRegistration
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,29 +37,37 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
         initGoogle()
+
+
 
         binding.btnGmail.setOnClickListener {
             googleSignUp()
         }
 
         binding.btnRegistration.setOnClickListener {
-            signUpWithEmailAndPassword()
+            signUpWithEmailAndPassword(email, password)
         }
     }
 
-    private fun signUpWithEmailAndPassword() {
-            App.fbAuth.createUserWithEmailAndPassword(
-                binding.etEmail.text.toString(), binding.etPassword.text.toString())
+    private fun signUpWithEmailAndPassword(email: String, password: String) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            App.fbAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    sendEmailVerification(task.result?.user!!)
-                    close()
+                    if (task.isSuccessful) {
+                        sendEmailVerification(task.result?.user!!)
+                        close()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            getString(R.string.cannot_registrated_rus),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-                else {
-                    Toast.makeText(context, getString(R.string.cannot_registrated_rus), Toast.LENGTH_SHORT).show()
-                }
-            }
+        } else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
     }
 
     private fun sendEmailVerification(user: FirebaseUser) {
@@ -91,52 +100,40 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         resultLauncher.launch(intent)
     }
 
-    private fun authWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        App.fbAuth.signInWithCredential(credential)
-            .addOnCompleteListener { task ->
+    private fun authWithGoogle(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener(OnCompleteListener<AuthResult>() { task ->
                 if (task.isSuccessful) {
-                    val user = App.fbAuth.currentUser
-                    updateUI(user)
                     close()
                 } else {
                     Toast.makeText(
                         requireContext(),
                         "AuthError ", Toast.LENGTH_SHORT
                     ).show()
+                    Log.e("Auth", task.exception?.message.toString())
                 }
-            }
+            })
+    }
+
+    private fun close() {
+        val navController = findNavController()
+        navController.navigateUp()
+
     }
 
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback {
-            if (it.resultCode == RESULT_OK) {
-                try {
-                    val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-                    val account = task.getResult(ApiException::class.java)!!
-                    authWithGoogle(account.idToken!!)
-                } catch (e: ApiException) {
-                    e.printStackTrace()
-                }
+            try {
+                val task: Task<GoogleSignInAccount> =
+                    GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                val account = task.getResult(ApiException::class.java)!!
+                authWithGoogle(account)
+            } catch (e: ApiException) {
+                e.printStackTrace()
             }
         })
 
-    // Check if user is signed in (non-null) and update UI accordingly.
-    override fun onStart() {
-        super.onStart()
-        val currentUser = App.fbAuth.currentUser
-        updateUI(currentUser)
-    }
-
-    // disable/enable buttons or set visibility
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
-
-    private fun close() {
-        val navController = findNavController()
-        navController.navigate(R.id.mainFragment)
-    }
 
 }

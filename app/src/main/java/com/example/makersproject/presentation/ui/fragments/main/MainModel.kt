@@ -1,5 +1,7 @@
 package com.example.makersproject.presentation.ui.fragments.main
 
+import java.io.Serializable
+
 data class MainModel (
 
      var imageIcon: Int,
@@ -8,4 +10,4 @@ data class MainModel (
      var comments: String,
 
 
-)
+) : Serializable
