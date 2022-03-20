@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.makersproject.App
 import com.example.makersproject.R
 import com.example.makersproject.databinding.ActivityMainBinding
 import com.example.makersproject.presentation.ui.fragments.firstRegistration.FirstRegistrationFragment
@@ -26,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         R.id.educationFragment
     )
 
+    //проверка на то что есть такой юзер или нет
     override fun onStart() {
         super.onStart()
-        val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser == null){
+        if (App.fbAuth.currentUser == null){
             navController.navigate(R.id.firstRegistrationFragment)
         }
     }
@@ -44,9 +45,6 @@ class MainActivity : AppCompatActivity() {
         val navHostController = supportFragmentManager.findFragmentById(R.id.navHostFragment)
         navController = navHostController!!.findNavController()
         binding.bottomNav.setupWithNavController(navController)
-
-        //проверка на то что есть такой юзер или нет
-
 
         //скрыть bottomNavigation
         navController.addOnDestinationChangedListener {controller, destination, arguments ->
@@ -63,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
         Log.e("TAG", "onBackPressed: ", )
         navController.navigateUp()
-
 
     }
 }

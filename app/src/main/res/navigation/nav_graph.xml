@@ -13,7 +13,8 @@
 
         <action
             android:id="@+id/action_firstRegistrationFragment_to_mainFragment"
-            app:destination="@id/mainFragment">        </action>
+            app:destination="@id/mainFragment">
+        </action>
 
     </fragment>
     <fragment
