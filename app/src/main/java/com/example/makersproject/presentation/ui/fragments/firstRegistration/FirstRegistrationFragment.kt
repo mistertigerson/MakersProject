@@ -35,8 +35,6 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val email = binding.etEmail.text.toString()
-        val password = binding.etPassword.text.toString()
 
         initGoogle()
 
@@ -45,13 +43,13 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         }
 
         binding.btnRegistration.setOnClickListener {
-            signUpWithEmailAndPassword(email, password)
+            signUpWithEmailAndPassword()
         }
     }
 
-    private fun signUpWithEmailAndPassword(email: String, password: String) {
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            App.fbAuth.createUserWithEmailAndPassword(email, password)
+    private fun signUpWithEmailAndPassword() {
+            App.fbAuth.createUserWithEmailAndPassword(
+                binding.etEmail.text.toString(), binding.etPassword.text.toString())
                 .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     sendEmailVerification(task.result?.user!!)
@@ -61,7 +59,6 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
                     Toast.makeText(context, getString(R.string.cannot_registrated_rus), Toast.LENGTH_SHORT).show()
                 }
             }
-        } else Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
     }
 
     private fun sendEmailVerification(user: FirebaseUser) {
@@ -94,22 +91,21 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         resultLauncher.launch(intent)
     }
 
-    private fun authWithGoogle(account: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-        FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener(OnCompleteListener<AuthResult>() {task ->
-                if (task.isSuccessful){
+    private fun authWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        App.fbAuth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val user = App.fbAuth.currentUser
+                    updateUI(user)
                     close()
                 } else {
-                    Toast.makeText(requireContext(),
-                        "AuthError ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "AuthError ", Toast.LENGTH_SHORT
+                    ).show()
                 }
-            })
-    }
-
-    private fun close() {
-        val navController = findNavController()
-        navController.navigate(R.id.mainFragment)
+            }
     }
 
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
@@ -117,13 +113,30 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
         ActivityResultCallback {
             if (it.resultCode == RESULT_OK) {
                 try {
-                    val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                    val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
                     val account = task.getResult(ApiException::class.java)!!
-                    authWithGoogle(account)
+                    authWithGoogle(account.idToken!!)
                 } catch (e: ApiException) {
                     e.printStackTrace()
                 }
             }
         })
+
+    // Check if user is signed in (non-null) and update UI accordingly.
+    override fun onStart() {
+        super.onStart()
+        val currentUser = App.fbAuth.currentUser
+        updateUI(currentUser)
+    }
+
+    // disable/enable buttons or set visibility
+    private fun updateUI(user: FirebaseUser?) {
+
+    }
+
+    private fun close() {
+        val navController = findNavController()
+        navController.navigate(R.id.mainFragment)
+    }
 
 }
