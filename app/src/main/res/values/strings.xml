@@ -15,7 +15,7 @@
     <string name="edPassword">Пароль</string>
     <string name="mail">Почта</string>/>
 
-    <!--Account fragment-->
+    <!--Account fragment xml-->
     <string name="imageViewAvatar">imageViewAvatar</string>
     <string name="tv_title_rus">Введите имя</string>
     <string name="tv_speciality_rus">Введите специальность</string>
@@ -34,7 +34,7 @@
     <!--Nav Menu-->
     <string name="nav_menu_title_account_rus">Личный кабинет</string>
 
-    <!--Edit Account fragment-->
+    <!--Edit Account fragment xml-->
     <string name="btn_save_data_rus">Сохранить</string>
     <string name="et_add_name_rus">Имя</string>
     <string name="et_add_speciality_rus">Специальность (профессия)</string>
@@ -47,4 +47,7 @@
     <string name="tv_data_status">5 лет</string>
     <string name="detail_rus">Подробнее</string>
     <string name="tv_change_photo_rus">Изменить фото профиля</string>
+
+    <!--Edit Account fragment-->
+    <string name="et_add_name_error_rus">Заполните поле пожалуйста</string>
 </resources>

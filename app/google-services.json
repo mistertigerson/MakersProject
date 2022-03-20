@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "503925719033",
+    "firebase_url": "https://makersalex-ee99d-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "makersalex-ee99d",
     "storage_bucket": "makersalex-ee99d.appspot.com"
   },
@@ -27,7 +28,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "503925719033-uci3jp2dtnvme0i6b8hr56b0vn49iraa.apps.googleusercontent.com",
+              "client_id": "503925719033-mhdtp3bmbftqc06m3es0j46brs38ah7v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

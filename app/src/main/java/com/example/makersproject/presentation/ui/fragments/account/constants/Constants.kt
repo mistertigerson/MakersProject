@@ -5,4 +5,7 @@ object Constants {
     // Account fragment put data
     const val keyName: String = "keyName"
 
+    // Realtime database firebase
+    const val users: String = "Users"
+
 }

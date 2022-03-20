@@ -77,7 +77,7 @@
         android:autofillHints=""
         android:hint="@string/et_add_contact_rus"
         android:imeOptions="actionDone"
-        android:inputType="phone"
+        android:inputType="text"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -97,7 +97,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etAddEducation"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:autofillHints=""
         android:hint="@string/et_add_experience_rus"
         android:imeOptions="actionDone"
