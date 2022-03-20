@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -38,8 +39,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         adapter = MainAdapter(object : MainAdapter.ClickOnPlaylist2 {
             override fun onClick(model: MainModel, position: Int) {
                 val bundle: Bundle = Bundle()
-                bundle.putString("title", model.title)
-                Log.e("TAG", "list: ${list[position].title}")
+                val bundle2: Bundle = Bundle()
+
+                MainFragmentDirections.actionMainFragmentToDetailsFragment(list[position].title)
+                bundle.putSerializable(TITLE, list[position].title)
+                bundle2.putString("sexy", list[position].title)
+//                Log.e("TAG", "list: ${bundle2.getString("sexy")}")
+                Log.e("TAG", "list: ${MainFragmentDirections.actionMainFragmentToDetailsFragment(list[position].title)}")
 //                bundle.putSerializable("author", list[position].NameOfAuthor)
 //                bundle.putSerializable("key", list[position].comments)
                 findNavController().navigate(R.id.detailsFragment, bundle)

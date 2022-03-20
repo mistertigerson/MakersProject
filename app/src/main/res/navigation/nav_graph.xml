@@ -44,11 +44,6 @@
         <action
             android:id="@+id/action_mainFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" >
-            <argument
-                android:name="title"
-                app:argType="string"
-                app:nullable="true"
-                />
         </action>
     </fragment>
     <fragment
