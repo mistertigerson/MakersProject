@@ -19,4 +19,40 @@
     <string name="cannot_registrated_rus">Не удалось зарегистрироватся</string>
     <string name="send_email_verification_rus">На вашу почту отправлена ссылка для подтверждения!</string>
     <string name="cannot_send_email_verification_rus">Не удалось отправить ссылку для подтверждения на почту</string>
+
+    <!--Account fragment xml-->
+    <string name="imageViewAvatar">imageViewAvatar</string>
+    <string name="tv_title_rus">Введите имя</string>
+    <string name="tv_speciality_rus">Введите специальность</string>
+    <string name="tv_city_rus">Город:</string>
+    <string name="tv_contact_rus">Контакты:</string>
+    <string name="tv_education_rus">Образование:</string>
+    <string name="tv_experience_rus">Стаж:</string>
+    <string name="btn_edit_rus">Редактировать</string>
+    <string name="tv_data_city_name_rus">Бишкек</string>
+    <string name="tv_data_contact_rus">+996700897680</string>
+    <string name="tv_data_education_rus">Программист</string>
+    <string name="tv_data_experience_rus">5 лет</string>
+    <string name="tv_course_rus">Созданные курсы</string>
+    <string name="tv_add_course_rus">Добавить свой курс</string>
+
+    <!--Nav Menu-->
+    <string name="nav_menu_title_account_rus">Личный кабинет</string>
+
+    <!--Edit Account fragment xml-->
+    <string name="btn_save_data_rus">Сохранить</string>
+    <string name="et_add_name_rus">Имя</string>
+    <string name="et_add_speciality_rus">Специальность (профессия)</string>
+    <string name="et_add_city_rus">Страна или город</string>
+    <string name="et_add_contact_rus">Контакты</string>
+    <string name="et_add_education_rus">Образование</string>
+    <string name="et_add_experience_rus">Стаж</string>
+    <string name="imageview">imageView</string>
+    <string name="tv_status_rus">Стаж:</string>
+    <string name="tv_data_status">5 лет</string>
+<!--    <string name="detail_rus">Подробнее</string>-->
+    <string name="tv_change_photo_rus">Изменить фото профиля</string>
+
+    <!--Edit Account fragment-->
+    <string name="et_add_name_error_rus">Заполните поле пожалуйста</string>
 </resources>

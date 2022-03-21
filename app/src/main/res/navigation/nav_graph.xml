@@ -7,7 +7,6 @@
 
     <fragment
         android:id="@+id/firstRegistrationFragment"
-        android:name="com.example.makersproject.presentation.ui.fragments.firstRegistration.FirstRegistrationFragment"
         android:label="fragment_first_registration"
         tools:layout="@layout/fragment_first_registration">
 
@@ -67,4 +66,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.example.makersproject.presentation.ui.fragments.account.EditAccountFragment"
+        android:label="fragment_edit_account"
+        tools:layout="@layout/fragment_edit_account" />
 </navigation>

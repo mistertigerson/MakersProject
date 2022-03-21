@@ -1,4 +1,4 @@
-package com.example.makersproject.data.model
+package com.example.makersproject.data.models
 
 data class Profile(
     val image: Int? = null,

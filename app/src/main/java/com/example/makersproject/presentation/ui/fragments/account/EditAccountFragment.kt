@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.makersproject.R
-import com.example.makersproject.data.model.Profile
+import com.example.makersproject.data.models.Profile
 import com.example.makersproject.databinding.FragmentEditAccountBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -30,7 +30,7 @@ class EditAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSaveData.setOnClickListener {
-            database = Firebase.database.reference
+            database = Firebase.database("https://makersalex-ee99d-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
             writeNewUser(
                 binding.etAddName.toString(), binding.etAddSpeciality.toString(),
                 binding.etAddCity.toString(), binding.etAddContact.toString(),
@@ -47,8 +47,10 @@ class EditAccountFragment : Fragment() {
     ) {
         val user = Profile(null, name, speciality, city, contacts, education, experience)
 
-        if (name != null) {
-            database.child(name).setValue(name)
+        if (name.toString().isNotEmpty()) {
+            if (name != null) {
+                database.child(name).setValue(name)
+            }
         } else {
             binding.etAddName.error = getString(R.string.et_add_name_error_rus)
         }
