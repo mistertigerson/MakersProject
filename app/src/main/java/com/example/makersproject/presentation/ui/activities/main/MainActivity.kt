@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser == null){
+       /* if (auth.currentUser == null){
             navController.navigate(R.id.firstRegistrationFragment)
-        }
+        }*/
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
