@@ -74,18 +74,21 @@ class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
     }
 
     private fun forgetPassword(username: EditText) {
-        if (username.text.toString().isEmpty()
-        ) {
-
+        if (username.text.toString().isEmpty())
+        {
             Toast.makeText(requireContext(),
                 "Fields cannot be empty ", Toast.LENGTH_SHORT).show()
-        } else {
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+            return
+        }
+        else {
             auth.sendPasswordResetEmail(username.text.toString())
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d(TAG, "Email sent."+task.exception!!.message.toString())
-                        Toast.makeText(requireContext(),
-                            "Password reset link sent "+task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,
+                            "Password reset link sent "+task.exception!!.message.toString(),
+                            Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(
                             requireContext(),
@@ -95,7 +98,6 @@ class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
                     }
                 }
         }
-
     }
 
     private fun initEditText() {

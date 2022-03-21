@@ -111,9 +111,10 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+
             if (it.resultCode == RESULT_OK) {
                 try {
-                    val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
                     val account = task.getResult(ApiException::class.java)!!
                     authWithGoogle(account.idToken!!)
                 } catch (e: ApiException) {
