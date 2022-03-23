@@ -50,7 +50,6 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
                 binding.btnRegistration.isEnabled = s?.length in 6..20
                 binding.btnRegistration.setOnClickListener {
                     signUpWithEmailAndPassword()
-
                 }
             }
             override fun afterTextChanged(p0: Editable?) {
@@ -87,6 +86,7 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
                     getString(R.string.send_email_verification_rus),
                     Toast.LENGTH_SHORT
                 ).show()
+                user.reload()
             } else Toast.makeText(
                 context,
                 getString(R.string.cannot_send_email_verification_rus),
@@ -169,7 +169,6 @@ class FirstRegistrationFragment : Fragment(R.layout.fragment_first_registration)
 
     private fun verifyCheck(){
         App.authListener = FirebaseAuth.AuthStateListener {
-            it.currentUser!!.reload()
             if (it.currentUser!!.isEmailVerified) {
                 close()
             }
