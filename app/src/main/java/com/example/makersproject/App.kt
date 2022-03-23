@@ -20,5 +20,6 @@ class App : Application() {
     companion object{
         lateinit var fbAuth: FirebaseAuth
         lateinit var fireStore: FirebaseFirestore
+        lateinit var authListener: FirebaseAuth.AuthStateListener
     }
 }
