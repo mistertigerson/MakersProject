@@ -17,6 +17,11 @@ import com.bumptech.glide.Glide
 import com.example.makersproject.R
 import com.example.makersproject.databinding.FragmentSecondRegistrationBinding
 import com.example.makersproject.presentation.ui.fragments.secondRegistration.model.ModelImg
+import com.example.makersproject.presentation.ui.fragments.secondRegistration.model.UserInfo
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 
 class SecondRegistrationFragment : Fragment(R.layout.fragment_second_registration) {
@@ -41,6 +46,7 @@ class SecondRegistrationFragment : Fragment(R.layout.fragment_second_registratio
         initRecycler()
         initObservers()
         initListeners()
+
     }
 
     private fun pickImg() {
@@ -97,6 +103,26 @@ class SecondRegistrationFragment : Fragment(R.layout.fragment_second_registratio
         binding.imgSecondFragment.setOnClickListener {
             pickImg()
         }
+        binding.btnSave.setOnClickListener {
+            val experience = binding.etExperience.text.toString()
+            val description = binding.etExperience.text.toString()
+            sendData(experience,description)
+        }
 
+    }
+
+    private fun sendData(experience:String,description:String) {
+        val db = FirebaseFirestore.getInstance()
+        val experienceUser : MutableMap<String,Any> = HashMap()
+        experienceUser["experience"] = experience
+        experienceUser["description"] = description
+        db.collection("user")
+            .add(experienceUser)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(),"success", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(requireContext(),"failed", Toast.LENGTH_SHORT).show()
+
+            }
     }
 }
